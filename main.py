@@ -98,7 +98,11 @@ class ChatResponse(BaseModel):
 
 
 # ── Routes ────────────────────────────────────────────────────────────────────
-
+@app.get("/")
+async def root():
+    return {
+        "message": "SHL Assessment Recommender API is running"
+    }
 @app.get("/health")
 async def health():
     return {"status": "ok"}
