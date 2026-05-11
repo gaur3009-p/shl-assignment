@@ -20,8 +20,8 @@ from app.catalog import CatalogStore, CatalogItem
 
 logger = logging.getLogger(__name__)
 
-ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages"
-MODEL = "claude-sonnet-4-20250514"
+GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
+MODEL = "llama-3.3-70b-versatile"
 MAX_TOKENS = 1024
 
 SYSTEM_PROMPT = """You are an expert SHL assessment consultant. Your ONLY job is helping hiring managers and recruiters select the right assessments from the SHL product catalog. 
