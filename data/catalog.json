@@ -1,0 +1,44 @@
+[
+  {
+    "entity_id": "1",
+    "name": "Verbal Reasoning Test",
+    "link": "https://www.shl.com/en/assessments/verbal-reasoning/",
+    "job_levels": ["entry", "mid"],
+    "languages": ["English"],
+    "duration_raw": "20 minutes",
+    "duration": "20",
+    "remote": "Yes",
+    "adaptive": "No",
+    "description": "Assesses verbal reasoning skills for roles requiring comprehension and analysis of written information.",
+    "keys": ["Ability & Aptitude"],
+    "status": "ok"
+  },
+  {
+    "entity_id": "2",
+    "name": "Numerical Reasoning Test",
+    "link": "https://www.shl.com/en/assessments/numerical-reasoning/",
+    "job_levels": ["mid", "senior"],
+    "languages": ["English"],
+    "duration_raw": "25 minutes",
+    "duration": "25",
+    "remote": "Yes",
+    "adaptive": "Yes",
+    "description": "Evaluates numerical reasoning abilities for positions involving data analysis and interpretation.",
+    "keys": ["Ability & Aptitude"],
+    "status": "ok"
+  },
+  {
+    "entity_id": "3",
+    "name": "Personality Questionnaire",
+    "link": "https://www.shl.com/en/assessments/personality/",
+    "job_levels": ["all"],
+    "languages": ["English", "Spanish"],
+    "duration_raw": "30 minutes",
+    "duration": "30",
+    "remote": "Yes",
+    "adaptive": "No",
+    "description": "Measures personality traits relevant to workplace behavior and team dynamics.",
+    "keys": ["Personality & Behavior"],
+    "status": "ok"
+  }
+]

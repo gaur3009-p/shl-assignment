@@ -1,0 +1,21 @@
+{
+  "name": "shl-assignment",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "backend": "uvicorn main:app --reload --host 0.0.0.0 --port 8000",
+    "frontend": "vite",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
+    "concurrently": "^9.2.1",
+    "vite": "^8.0.12"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

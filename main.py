@@ -16,6 +16,9 @@ import numpy as np
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, field_validator
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from app.catalog import CatalogStore
 from app.agent import AssessmentAgent
