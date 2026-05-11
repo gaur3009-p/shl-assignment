@@ -183,7 +183,7 @@ class AssessmentAgent:
         catalog_context = self._build_catalog_context(retrieved)
 
         # 4. Call LLM
-        raw = await self._call_claude(messages, catalog_context)
+        raw = await self._call_groq(messages, catalog_context)
 
         # 5. Parse and validate response
         parsed = _parse_response(raw)
