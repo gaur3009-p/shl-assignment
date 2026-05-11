@@ -229,12 +229,9 @@ class AssessmentAgent:
         
         return validated
 
-    async def _call_claude(self, messages: list[dict], catalog_context: str) -> str:
-        """Call the Anthropic API with injected catalog context."""
-        # Inject catalog context into the last user message via a system-style injection
-        augmented_messages = list(messages)  # copy
-        
-        # Add catalog context as a prefix to the last user message
+    async def _call_groq(self, messages, catalog_context):
+        augmented_messages = list(messages)
+    
         if augmented_messages and augmented_messages[-1]["role"] == "user":
             last = augmented_messages[-1]
             augmented_messages[-1] = {
@@ -244,23 +241,31 @@ class AssessmentAgent:
                     f"{last['content']}"
                 ),
             }
-
+    
         payload = {
             "model": MODEL,
-            "max_tokens": MAX_TOKENS,
-            "system": SYSTEM_PROMPT,
-            "messages": augmented_messages,
+            "messages": [
+                {
+                    "role": "system",
+                    "content": SYSTEM_PROMPT,
+                },
+                *augmented_messages
+            ],
+            "temperature": 0.2,
+            "max_tokens": 1024,
         }
-
+    
         async with httpx.AsyncClient(timeout=28) as client:
             resp = await client.post(
-                ANTHROPIC_API_URL,
+                GROQ_API_URL,
                 json=payload,
                 headers={
+                    "Authorization": f"Bearer {os.getenv('GROQ_API_KEY')}",
                     "Content-Type": "application/json",
-                    "anthropic-version": "2023-06-01",
                 },
             )
+    
             resp.raise_for_status()
             data = resp.json()
-            return data["content"][0]["text"]
+    
+            return data["choices"][0]["message"]["content"]
