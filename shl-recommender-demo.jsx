@@ -201,7 +201,7 @@ export default function SHLRecommender() {
   }, [messages, loading]);
 
   const callAPI = async (newApiMessages) => {
-  const response = await fetch("http://localhost:8000/chat", {
+  const response = await fetch("https://shl-backend-dmkb.onrender.com/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
